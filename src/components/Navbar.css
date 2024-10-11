@@ -1,0 +1,59 @@
+
+:root, [data-theme="default"] {
+    --link-color: #2E3840;
+    --bg-color:white;
+}
+
+[data-theme="dark"] {
+    --link-color: white;
+    --bg-color:black;
+  }
+
+nav{
+    background-color: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-bottom: 0.5px solid rgb(226, 223, 223);
+    padding: .5rem;
+}
+
+.links{
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.links div{
+    margin-left: 50px;
+}
+
+.toggle{
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+h1{
+    margin-right: 90px;
+}
+
+button{
+    letter-spacing: 0.3px;
+    line-height: 8px;
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+    color:var(--link-color);
+    font-size: 17px;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+.bothLD:hover{
+    cursor: pointer;
+}

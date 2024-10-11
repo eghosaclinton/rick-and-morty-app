@@ -1,0 +1,97 @@
+:root, [data-theme="default"] {
+    --body-bg-color: #fff;
+    --border-button: 1px solid rgb(198, 196, 196);
+}
+
+[data-theme="dark"] {
+    --body-bg-color: #444352;
+    --border-button: 1px solid rgb(198, 196, 196)
+  }
+  
+
+.main{
+    background-color: var(--body-bg-color);
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    /* height: 90vh; */
+}
+
+.img-form{
+    margin-top: 55px;
+}
+
+.info{
+    padding: 10px;
+    text-align: center;
+    background-color: #EEEEEE;
+    width: 340px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.info > form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.divBtn{
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.divBtn button{
+    height: 27px;
+    width: 220px;
+    border: var(--border-button);
+    margin-top: 20px;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+.or{
+    font-size: 15px;
+}
+
+.input{
+    height: 27px;
+    width: 220px;
+    border: var(--border-button);
+    margin-top: 20px;
+    border-radius: 5px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.continue{
+    height: 32px;
+    width: 220px;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-size: 13px;
+    background-color: #c96813;
+    color: white;
+    text-align: center;
+}
+
+.userNotYet{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+
+.userNotYet button{
+    font-size: 14px;
+    color: #3A98B9;
+    text-decoration: underline;
+}
+
+.FcGog{
+    margin-right: 5px;
+    margin-top: auto;
+    margin-bottom: auto;
+}

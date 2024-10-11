@@ -1,0 +1,10 @@
+.boxSide{
+    background-color: #EEEEEE;
+    width: 250px;
+    position: fixed;
+}
+
+.boxDetail{
+    position: absolute;
+    left: 270px;
+}

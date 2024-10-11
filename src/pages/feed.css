@@ -1,0 +1,42 @@
+h2{
+    color:#3A98B9;
+}
+
+.scroll{
+    display: flex;
+    overflow: hidden;
+}
+
+.left-arrow{
+    cursor: pointer;
+    position: absolute;
+    font-size: 35px;
+    top: 50%;
+    z-index: 3;
+    transition: 0.3s all ease-in-out;
+}
+
+.right-arrow{
+    cursor: pointer;
+    position: absolute;
+    font-size: 35px;
+    top: 50%;
+    z-index: 3;
+    transition: 0.3s all ease-in-out;
+}
+
+.left-arrow:hover{
+    transform: scale(1.4, 1.4);
+}
+
+.right-arrow:hover{
+    transform: scale(1.4,1.4);
+}
+
+.left-arrow{
+    left: 15px;
+}
+
+.right-arrow{
+    right:15px;
+}

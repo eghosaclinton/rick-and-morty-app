@@ -1,0 +1,140 @@
+:root, [data-theme="default"] {
+    --body-bg-color: #fff;
+    --border-button: 1px solid rgb(198, 196, 196);
+}
+
+[data-theme="dark"] {
+    --body-bg-color: #444352;
+    --border-button: 1px solid rgb(198, 196, 196)
+  }
+  
+
+.nav-main{
+    background-color: var(--body-bg-color);
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+}
+
+.reg-img-form{
+    margin-top: 25px;
+}
+
+.nav-info{
+    background-color: #EEEEEE;
+    padding: .75rem;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.nav-info > form{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bio{
+    font-weight: bold;
+}
+
+/* .divBtn{
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+} */
+
+/* .divBtn button{
+    height: 27px;
+    width: 220px;
+    border: var(--border-button);
+    margin-top: 20px;
+    border-radius: 5px;
+    font-size: 13px;
+} */
+
+.or{
+    font-size: 15px;
+}
+
+.email > input{
+    border: var(--border-button);
+    /* padding: .65rem; */
+    border-radius: .25rem;
+    font-size: 13px;
+    outline: none;
+}
+
+.email, .password, .confirmPassword{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cp{
+    /* padding: .65rem; */
+    height: 27px;
+    width: 220px;
+    border: var(--border-button);
+    border-radius: 5px;
+    font-size: 13px;
+    text-align: center;
+}
+.continue{
+    width: 60%;
+    border-radius: 1rem;
+    font-size: 13px;
+    background-color: #c96813;
+    color: white;
+    text-align: center;
+}
+
+.userAlready{
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+}
+
+.userAlready button{
+    font-size: 14px;
+    color: #3A98B9;
+    text-decoration: underline;
+}
+
+/* .FcGog{
+    margin-right: 5px;
+    margin-top: auto;
+    margin-bottom: auto;
+} */
+
+.exclaim{
+    color: red;
+    font-size: 11px;
+    padding: 4px;
+    display: none;
+}
+
+.exclaims{
+    color: red;
+    font-size: 11px;
+    padding: 4px;
+    display: none;
+}
+
+input:invalid[passwordFocused='true']{
+    border: 1px solid red;
+}
+
+input:invalid[passwordFocused='true'] ~ .exclaims{
+    display: block;
+}
+
+input:invalid[CPasswordFocused='true'] ~ .exclaim{
+    display: block;
+}

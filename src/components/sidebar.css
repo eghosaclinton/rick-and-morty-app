@@ -1,0 +1,22 @@
+.sidebtn{
+ display: flex;
+ flex-direction: column;   
+}
+
+
+.sidebtn button{
+    margin-top: 50px;
+}
+
+.sidebtn span{
+    margin-left: 5px;
+}
+
+.nameSearch{
+    width: 190px;
+    height: 40px;
+    margin: 20px 20px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}

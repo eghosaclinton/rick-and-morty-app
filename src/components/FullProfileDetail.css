@@ -1,0 +1,26 @@
+.fullProfile{
+    display: flex;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.fullImg{
+    border-radius: 2px;
+    width: 400px;
+    height: 400px;
+}
+
+.img-container, .text-container{
+    width: 40%;
+}
+
+.text-container .textCon {
+    margin-top: 40px;
+    font-size: 15px;
+}
+
+.text-container span{
+    font-size: 20px;
+    margin-left: 20px;
+    color: #2E3840;
+}
