@@ -1,8 +1,10 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import './Navbar.css'
-import  {FaToggleOff} from 'react-icons/fa'
-import {FaToggleOn} from 'react-icons/fa'
+import  { FaToggleOff, FaToggleOn, FaSearch, } from 'react-icons/fa'
+import { MdDynamicFeed } from "react-icons/md";
+import { CiLogin, CiLogout } from "react-icons/ci";
+import { IoMenu } from "react-icons/io5";
 import imgPro from '../assets/imgPro.png'
 import { Context } from '../context/StateContext'
 import { onAuthStateChanged, signOut } from 'firebase/auth'
@@ -10,6 +12,7 @@ import { auth } from '../firebase/configFirebase'
 import { toast } from 'sonner'
 
 const Navbar = () => {
+    const [isMenuShown, setIsMenuShown] = useState(!matchMedia("(max-width: 600px)").matches)
     const stateContext = useContext(Context)
     const { dark, changeMode } = stateContext;
     const { amILoggedIn, setAmILoggedIn } = useContext(Context)
@@ -34,36 +37,49 @@ const Navbar = () => {
     }
 
 
-
   return (
     <nav>
+        <button className='menu' onClick={()=>{
+            setIsMenuShown(prev=>!prev)
+        }}>
+            <IoMenu/>
+        </button>
+        
+        {isMenuShown && 
         <div className='links'>
             <div>
-            <Link to='/register'>
-                {!amILoggedIn && <button>Register</button>}
-            </Link>
+                <Link to='/register'>
+                    {!amILoggedIn && <button>Register</button>}
+                </Link>
             </div>
+
             <div>
-            <Link to='/login'>
-                {!amILoggedIn && <button>Login</button>}
-            </Link>
+                <Link to='/login'>
+                    {!amILoggedIn && <button><CiLogin/>Login</button>}
+                </Link>
             </div>
+
             <div>
                 {amILoggedIn && <button
                  onClick={logoutUser}
-                 >Logout</button>}
+                 ><CiLogout />Logout</button>}
             </div>
+
             <div>
-            <Link to='/feed'>
-            <button>Feed</button>
-            </Link>
+                <Link to='/feed'>
+                    <button><MdDynamicFeed />Feed</button>
+                </Link>
             </div>
+
             <div>
-            <Link to='/search'>
-            {amILoggedIn && <button>search</button>}
-            </Link>
+                <Link to='/search'>
+                    {amILoggedIn && <button><FaSearch />Search</button>}
+                </Link>
             </div>
+
         </div>
+        }
+
         <div className='toggle' onClick={changeMode}>
             <img src={imgPro} width='100px' height='50px'/>
             {dark ? <FaToggleOff className='bothLD' size={30}/> : 

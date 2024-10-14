@@ -19,10 +19,15 @@ nav{
     padding: .5rem;
 }
 
+.menu{
+    display: none;
+}
+
 .links{
     width: 40%;
+    flex-direction: column-reverse;
     display: flex;
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
 }
 
 .links div{
@@ -56,4 +61,14 @@ button:hover{
 
 .bothLD:hover{
     cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .menu{
+        display: block;
+    }
+
+    .links{
+
+    }
 }

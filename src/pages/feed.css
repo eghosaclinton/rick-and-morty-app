@@ -2,6 +2,12 @@ h2{
     color:#3A98B9;
 }
 
+.scrollPage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+}
+
 .scroll{
     display: flex;
     overflow: hidden;

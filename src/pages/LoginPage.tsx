@@ -1,14 +1,13 @@
 import { toast } from 'sonner'
 import { FormEvent, useContext, useState } from 'react'
 import { signInWithEmailAndPassword } from 'firebase/auth'
-import { auth } from '../firebase/configFirebase'
-// import { signInWithPopup } from 'firebase/auth'
+import { auth, provider } from '../firebase/configFirebase'
+import { signInWithPopup } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import imgPro from '../assets/imgPro.png'
 import './LoginPage.css'
-import {FcGoogle} from 'react-icons/fc'
-import {MdEmail} from 'react-icons/md'
+import { FcGoogle } from 'react-icons/fc'
 import { Context } from '../context/StateContext'
 import { motion } from 'framer-motion'
 
@@ -47,6 +46,7 @@ const LoginPage = () => {
             return `Login Success`;
       },
       error: 'Login Failed',
+      position: 'top-center',
     })
   }
 
@@ -57,16 +57,16 @@ const LoginPage = () => {
 
   
 
-  // const signInWithGoogle = () => {
-  //   signInWithPopup(auth,provider)
-  //   .then((result) => {
-  //     toast.success('Login successful')
-  //     setAmILoggedIn(true)
-  //     navigate('/feed')
-  //   }).catch((err) => {
-  //     toast.error(err.message)
-  //   })
-  // }
+  const signInWithGoogle = () => {
+    signInWithPopup(auth,provider)
+    .then((result) => {
+      toast.success('Login successful')
+      setAmILoggedIn(true)
+      navigate('/feed')
+    }).catch((err) => {
+      toast.error(err.message)
+    })
+  }
 
 
   return (
@@ -79,12 +79,10 @@ const LoginPage = () => {
         <img className='img-form' src={imgPro} width='100px' height='50px'/>
         <p className='bio'><b>Wubba Lubba Dub Dub!</b></p>
         <div className='divBtn'>
-        <button onClick={()=>console.log('hry')} className='loginWithSocial'>
+        <button onClick={()=>signInWithGoogle()} className='loginWithSocial'>
             <FcGoogle  className='FcGog'/>
-            Continue with Google</button>
-        <button className='loginWithSocial'>
-            <MdEmail className='FcGog'/>
-            Continue with Email</button>
+            Continue with Google
+        </button>
         </div>
         <p className='or'>----------------or-----------------</p>
 

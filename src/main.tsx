@@ -17,8 +17,8 @@ createRoot(document.getElementById('root')!).render(
     <ApolloProvider client={client}>
       <StateContext>
         <App />
+        <Toaster />
       </StateContext>
-      <Toaster />
     </ApolloProvider>
   </StrictMode>,
 )

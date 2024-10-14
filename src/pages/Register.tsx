@@ -7,7 +7,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import imgPro from '../assets/imgPro.png'
 import { motion } from 'framer-motion'
 
-const Register = () => {
+export default function Register() {
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
     email: '',
@@ -121,4 +121,3 @@ const Register = () => {
   )
 }
 
-export default Register
