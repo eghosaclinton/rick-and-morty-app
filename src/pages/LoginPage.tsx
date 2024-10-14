@@ -37,13 +37,16 @@ const LoginPage = () => {
 
   const login = () => {
     const { email, password } = formData
-    signInWithEmailAndPassword(auth, email, password)
-    .then((result) => {
-      toast.success('Login successful')
-      setAmILoggedIn(true)
-      navigate('/feed')
-    }).catch((err) => {
-      toast.error(err.message)
+    toast.promise(async()=>{
+        const userLogin = await signInWithEmailAndPassword(auth, email, password)
+        setAmILoggedIn(true)
+        navigate('/feed')
+      }, {
+      loading: 'Loading...',
+      success: () => {
+            return `Login Success`;
+      },
+      error: 'Login Failed',
     })
   }
 

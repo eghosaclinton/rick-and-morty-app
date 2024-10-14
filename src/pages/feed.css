@@ -7,6 +7,11 @@ h2{
     overflow: hidden;
 }
 
+.cardDeck{
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .left-arrow{
     cursor: pointer;
     position: absolute;
