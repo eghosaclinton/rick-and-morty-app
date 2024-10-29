@@ -11,24 +11,18 @@ import FullProfileDetail from './components/FullProfileDetail.tsx';
 export default function App() {
   
   return (
-    <BrowserRouter>
-      
-      
+    <BrowserRouter>      
         <div className="App">
-          <Navbar />
-          
+          <Navbar />          
           <Routes>
-            <Route path='/register' element={<Register />}/>
             <Route path='/' element={<LoginPage />}/>
+            <Route path='/register' element={<Register />}/>
             <Route path='/login' element={<LoginPage />}/>
             <Route path='/feed' element={<Feed />}/>
             <Route path='/search' element={<SearchPage />}/>
             <Route path='/:id' element={<FullProfileDetail />} /> 
           </Routes>
-
-        </div>
-
-  
+        </div>  
     </BrowserRouter>
   )
 }

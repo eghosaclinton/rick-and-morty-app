@@ -1,12 +1,11 @@
 import { useState, useContext } from 'react'
-// import { categories } from './sidebarData'
+import { categories } from './sidebarData'
 import './sidebar.css'
 import { Context } from '../context/StateContext'
 
 
 const Sidebar = () => {
- const {selected,setSelected,setSearch} =  useContext(Context)
- console.log(selected)
+ const { selected, setSelected, setSearch } =  useContext(Context)
  
 
 

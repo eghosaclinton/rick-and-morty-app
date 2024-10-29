@@ -1,6 +1,4 @@
 import { createContext, useState} from 'react';
-
-// the type for your context value
 interface ContextValue {
   dark: boolean;
   changeMode: (param: boolean) => void;
@@ -13,18 +11,14 @@ interface ContextValue {
 
 }
 
-// the props type for the context provider component
-interface MyContextProviderProps {
-  children: React.ReactNode;
-}
-
+// interface MyContextProviderProps {
+//   children: React.ReactNode;
+// }
+// React.FC<MyContextProviderProps>
 
 export const Context = createContext<ContextValue | undefined>(undefined);
 
-// export const useStateContext = () => useContext(Context)
-
-
-export const StateContext: React.FC<MyContextProviderProps> = ({ children }) => {
+export function StateContext ({ children }: {children: React.ReactNode}) {
   const [dark, setDark] = useState(true)
   const [amILoggedIn, setAmILoggedIn] = useState(false)
   const [selected, setSelected] = useState('male')

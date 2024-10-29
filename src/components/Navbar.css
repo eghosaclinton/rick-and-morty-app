@@ -14,24 +14,47 @@ nav{
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 1.5rem;
     width: 100%;
     border-bottom: 0.5px solid rgb(226, 223, 223);
-    padding: .5rem;
+    padding: .75rem 0;
+}
+
+a{
+    text-decoration: none;
 }
 
 .menu{
     display: none;
 }
 
-.links{
-    width: 40%;
-    flex-direction: column-reverse;
-    display: flex;
-    /* justify-content: flex-end; */
+.menu--icon{
+    height: 2.25rem;
+    width: 2.25rem;
 }
 
-.links div{
-    margin-left: 50px;
+.nav--links{
+    position: relative;
+}
+
+.ze--links{
+    flex-direction: column-reverse;
+}
+
+.links{
+
+    flex-direction: row-reverse;
+    display: flex;
+}
+
+.links div, .ze--links div{
+    padding: .5rem .75rem;
+}
+
+.links a > button, .ze--links a > button{
+    display: flex;
+    gap: .5rem;
+    align-items: center;
 }
 
 .toggle{
@@ -69,6 +92,13 @@ button:hover{
     }
 
     .links{
+        display: none;
+    }
 
+    .ze--links{
+        display: flex;
+        position: absolute;
+        background-color: #ffffff;
+        border: solid 1.5px #000000;
     }
 }

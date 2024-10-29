@@ -1,5 +1,5 @@
 import FallBack from '../components/FallBack.tsx';
-import { useCharacters } from '../custom Hooks/feedQL.ts'
+import { useCharacters } from '../hooks/feedQL.ts'
 import CardInfo from '../components/CardInfo.tsx'
 import './feed.css'
 import { Context } from '../context/StateContext.tsx';
@@ -8,8 +8,8 @@ import { motion } from 'framer-motion';
 
 function Feed() {
   const { loading, error, data } = useCharacters()
-  const stateContext = useContext(Context)
 
+  const stateContext = useContext(Context)
   const { amILoggedIn } = stateContext
 
   return (
@@ -22,10 +22,9 @@ function Feed() {
           transition={{ease:'easeOut',duration:1}}
         >
           <div className='cardDeck'>
-            {data ? 
+            {!loading ? 
               data.characters.results.map(character => (
-                <CardInfo key={character.id} id={character.id} created={character.created}
-                          // itemId={character.id}   
+                <CardInfo key={character.id} id={character.id} created={character.created}  
                     name={character.name} status={character.status} img={character.image}
                  />
               ))

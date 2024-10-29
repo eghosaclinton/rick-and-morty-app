@@ -8,26 +8,15 @@ import imgPro from '../assets/imgPro.png'
 import { motion } from 'framer-motion'
 
 export default function Register() {
-  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     email: '',
     password: '',
     confirmPassword: '',
   })
 
-  // const [passwordFocused, setPasswordFocused] = useState(false)
-  // const [CPasswordFocused, setCPasswordFocused] = useState(false)
+  const navigatePageTo = useNavigate()
 
-  // const handleFocus = () => {
-  //   setPasswordFocused(true)
-
-  // }
-
-  // const handleFocuss = () => {
-  //   setCPasswordFocused(true)
-  // }
-
-  function handleChange(target: HTMLInputElement){
+  function changeEventHandler(target: HTMLInputElement){
       const { value, name } = target;
 
       setFormData(prev=>{
@@ -35,24 +24,22 @@ export default function Register() {
           ...prev,
           [name]: value,
         }
-      }
-      )
+      })
   }
 
-  const registerUser = (e: FormEvent) => {
-    e.preventDefault();
+  function registerUser(submitEvent: FormEvent){
+    submitEvent.preventDefault();
     createUserWithEmailAndPassword(auth, formData.email, formData.password)
     .then((userCredential) => {
       // console.log(userCredential)
       toast.success('Registered succesfully')
-      navigate('/login')
+      navigatePageTo('/login')
     })
     .catch((error) => {
       console.error(error)
       toast.error('Failed, try again')
     })
   }
-
 
   return (
     <div className='nav-main'>
@@ -77,7 +64,7 @@ export default function Register() {
           <div className="email">
             <label htmlFor="emailField">Enter Email: </label>
             <input id='emailField' name='email' value={formData.email}
-                onChange={(e) => handleChange(e.target)} className='input'
+                onChange={(e) => changeEventHandler(e.target)} className='input'
                 type='email' placeholder='Enter email' 
             />
           </div>
@@ -85,10 +72,7 @@ export default function Register() {
           <div className="password">
             <label htmlFor="passwordField">Set a Password: </label>
             <input id='passwordField' 
-            // onBlur={handleFocus}
-              // passwordFocused={passwordFocused.toString()}
-              // pattern='^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$'
-              name='password' value={formData.password} onChange={(e) => handleChange(e.target)}
+              name='password' value={formData.password} onChange={(e) => changeEventHandler(e.target)}
               className='input' type='password' placeholder='Set password'
             />
             <p className='exclaims'>pasword must contain a letter,num and special character and be between 8-20 characters.</p>
@@ -97,10 +81,8 @@ export default function Register() {
           <div className="confirmPassword">
             <label htmlFor="confirmPasswordField">Confirm Password: </label>
             <input id='confirmPasswordField' 
-            // onBlur={handleFocuss}
-              // CPasswordFocused={CPasswordFocused.toString()}
               name='confirmPassword' value={formData.confirmPassword}
-              onChange={(e) => handleChange(e.target)} className='cp'
+              onChange={(e) => changeEventHandler(e.target)} className='cp'
               type='password' placeholder='Confirm password'
             />
             <p className='exclaim'>must be same with password</p>

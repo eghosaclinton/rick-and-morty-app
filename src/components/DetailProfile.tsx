@@ -48,7 +48,7 @@ const GET_CHARACTER_GENDER = gql`
 
 const DetailProfile = () => {
     const stateContext = useContext(Context)
-    const {selected,search,setSearch} = stateContext
+    const { selected, search, setSearch} = stateContext
     const name = selected
     
     const [user, setUser] = useState([]);
@@ -61,19 +61,18 @@ const DetailProfile = () => {
    
 
     useEffect(() => {
-        const fetchUser = () => 
+        function fetchUser(){ 
         fetch(`https://rickandmortyapi.com/api/character/?name=${search}`)
           .then(response => response.json())
           .then(data => {
             data = data.results
             setUser(data)
-          });
-          fetchUser();
+          })
+        }
+        fetchUser();
       }, [search])
 
-      console.log(user)
-    console.log(selected)
-    const list = {
+      const list = {
         visible: {opacity: 1,
           transition:{
             when: 'beforeChildren',
@@ -106,7 +105,7 @@ const DetailProfile = () => {
     <motion.div initial='hidden'
     animate='visible'
     variants={list} className='detail-card-container'>
-    {search == '' && data && data.characters.results.map((i) => (
+    {/* {search == '' && data && data.characters.results.map((i) => (
     <motion.div custom={i}
     animate='visible'
     initial='hidden'
@@ -119,8 +118,8 @@ const DetailProfile = () => {
         <p>status: {i.status}</p>
         <Link to={`/${i.id}`}><button>Details</button></Link>
         <p>specie: <span  style={{fontSize:'11px'}}><i>{i.species}</i></span></p>
-    </motion.div>))}
-    {user && user.map((i) => (
+    </motion.div>))} */}
+    {/* {user && user.map((i) => (
     <motion.div custom={i}
     animate='visible'
     initial='hidden'
@@ -133,7 +132,7 @@ const DetailProfile = () => {
         <p>status: {i.status}</p>
         <Link to={`/${i.id}`}><button>Details</button></Link>
         <p>specie: <span  style={{fontSize:'11px'}}><i>{i.species}</i></span></p>
-    </motion.div>))}
+    </motion.div>))} */}
     </motion.div>
   )
 }

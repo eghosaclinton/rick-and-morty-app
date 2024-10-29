@@ -1,16 +1,11 @@
 import { useParams } from 'react-router-dom'
 import'./FullProfileDetail.css'
-import { useCharacter } from '../custom Hooks/character'
-
-
+import { useCharacter } from '../hooks/character'
 
 const FullProfileDetail = () => {
-    const { id } = useParams()
+  const { id } = useParams()
 
-    const { data, loading, error } = useCharacter(id)
-
-    console.log(data)
-    
+  const { data, loading, error } = useCharacter(String(id))    
 
   return (
     <div className='fullProfile'>

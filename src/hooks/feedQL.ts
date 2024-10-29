@@ -1,6 +1,7 @@
 import { useQuery, gql } from "@apollo/client"
 
-const GET_CHARACTERS = gql`
+export const useCharacters = () => {
+  const GET_CHARACTERS = gql`
   query Query{
  	    characters{
         results{
@@ -12,13 +13,12 @@ const GET_CHARACTERS = gql`
         }
        } 
     }
-`
-
-export const useCharacters = () => {
-    const { error, loading, data } = useQuery(GET_CHARACTERS)
-    return {
-        error,
-        data,
-        loading
-    }
+  `
+  const { error, loading, data } = useQuery(GET_CHARACTERS)
+  
+  return {
+      error,
+      data,
+      loading
+  }
 }

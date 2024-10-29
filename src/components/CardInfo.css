@@ -1,7 +1,6 @@
 .card{
     background-color: #EEEEEE;
     /* margin-top: 40px; */
-    margin-left: 20px;
     padding: 10px;
     color: #2E3840;
     border-radius: 10px;
@@ -14,8 +13,10 @@
 
 
 .card-container{
-    margin-top: 40px;
-    height: 400px;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    /* height: 400px; */
 }
 
 .card:hover{

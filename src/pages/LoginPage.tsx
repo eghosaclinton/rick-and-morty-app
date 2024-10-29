@@ -11,18 +11,17 @@ import { FcGoogle } from 'react-icons/fc'
 import { Context } from '../context/StateContext'
 import { motion } from 'framer-motion'
 
-const LoginPage = () => {
-
-  const navigate = useNavigate()
-  const stateContext = useContext(Context)
-  const { setAmILoggedIn } = stateContext
-
+export default function LoginPage(){
   const [formData, setFormData] = useState({
     email: '',
     password: ''
   })
 
-  function handleChange(target: HTMLInputElement){
+  const navigatePageTo = useNavigate()
+  const stateContext = useContext(Context)
+  const { setAmILoggedIn } = stateContext  
+
+  function changeEventHandler(target: HTMLInputElement){
     const { value, name } = target;
 
     setFormData(prev=>{
@@ -34,12 +33,12 @@ const LoginPage = () => {
     )
   }
 
-  const login = () => {
+  function loginUser(){
     const { email, password } = formData
     toast.promise(async()=>{
         const userLogin = await signInWithEmailAndPassword(auth, email, password)
         setAmILoggedIn(true)
-        navigate('/feed')
+        navigatePageTo('/feed')
       }, {
       loading: 'Loading...',
       success: () => {
@@ -50,19 +49,17 @@ const LoginPage = () => {
     })
   }
 
-  function handleSubmit(e: FormEvent){
-    e.preventDefault();
-    login()
-  }
-
-  
+  function submitEventHandler(submitEvent: FormEvent){
+    submitEvent.preventDefault();
+    loginUser();
+  }  
 
   const signInWithGoogle = () => {
     signInWithPopup(auth,provider)
     .then((result) => {
       toast.success('Login successful')
       setAmILoggedIn(true)
-      navigate('/feed')
+      navigatePageTo('/feed')
     }).catch((err) => {
       toast.error(err.message)
     })
@@ -86,16 +83,16 @@ const LoginPage = () => {
         </div>
         <p className='or'>----------------or-----------------</p>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={submitEventHandler}>
 
           <div className="email">
             <label htmlFor="emailField"></label>
-            <input type='email' id='emailField' name='email' value={formData.email} onChange={(e)=>handleChange(e.target)} className='input' placeholder='Enter email address'/>
+            <input type='email' id='emailField' name='email' value={formData.email} onChange={(e)=>changeEventHandler(e.target)} className='input' placeholder='Enter email address'/>
           </div>
 
           <div className="password">
             <label htmlFor="passwordField"></label>
-            <input type='password' id='passwordField' name='password' value={formData.password} onChange={(e)=>handleChange(e.target)} className='input' placeholder='Enter Password'/>
+            <input type='password' id='passwordField' name='password' value={formData.password} onChange={(e)=>changeEventHandler(e.target)} className='input' placeholder='Enter Password'/>
           </div>
 
           <button className='continue'>Continue</button>
@@ -112,5 +109,3 @@ const LoginPage = () => {
     </div>
   )
 }
-
-export default LoginPage
