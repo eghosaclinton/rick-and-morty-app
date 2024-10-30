@@ -8,19 +8,18 @@ import './searchPage.css'
 
 const SearchPage = () => {
   const { amILoggedIn } = useContext(Context)  
-  return (
 
-      <div 
-    //   sx={{flexDirection:{sx:'column', md:'row'}}}
-        >
-        {amILoggedIn && <Sidebar />}
-          {/* <Box className='boxSide' sx={{height:{sx:'auto',md:'90vh'}}}>
-              
-          </Box> */}
-          {/* <Box className='boxDetail'>
+  return (
+      <Stack direction="row" >
+        {amILoggedIn && 
+          <Box className='boxSide' sx={{height:{sx:'auto',md:'90vh'}}}>
+              <Sidebar />
+          </Box>
+          }
+          <Box className='boxDetail'>
               {amILoggedIn ? <DetailProfile /> : <h1>Error 404 : Page not found</h1>}
-          </Box> */}
-      </div>
+          </Box>
+      </Stack>
   )
 }
 

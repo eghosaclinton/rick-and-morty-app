@@ -14,6 +14,6 @@ export const categories: Categories[] = [
     {keyCategory:'origin.name', name:'Earth', icon:(<FaLocationArrow/>)},
     {keyCategory:'status', name:'Alive',icon:(<GrStatusInfo/>)},
     {keyCategory:'gender', name:'Male',icon:(<MdTripOrigin/>)},
-    {keyCategory:'gender', name:'Female',icon:(<MdCreate/>)},
+    {keyCategory:'sex', name:'Female',icon:(<MdCreate/>)},
     {keyCategory:'species', name:'Human',icon:(<CgProfile/>)}
 ]
