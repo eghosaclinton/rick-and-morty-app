@@ -64,8 +64,6 @@ export default function DetailProfile (){
       hidden: () => ({ opacity: 0, x:-100 }),
     }
 
-
-
   return (
     <motion.div 
       initial='hidden'
